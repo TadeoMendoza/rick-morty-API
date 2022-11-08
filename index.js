@@ -30,7 +30,7 @@ getEpisodes(data => {
 
     data.results.forEach(episodios => {
         const article = document.createRange().createContextualFragment(`
-    <article>
+    <div class="col-12">
         <div class="accordion" id="accordionExample">
         <div class="accordion-item">
           <h2 class="accordion-header" id="headingOne">
@@ -42,12 +42,12 @@ getEpisodes(data => {
             <div class="accordion-body">
              <p class=""> Episodio lanzado el ${episodios.air_date}</p>
              <p class=""> Los personajes que aparecen son:</p>
-             <a href="/episodio.html?epi=${episodios.id}">episodios</a>
+             <a class="btn btn-primary" href="/episodio.html?epi=${episodios.id}">Ver Personajes</a>
             </div>
           </div>
         </div>
       </div>
-    </article>
+    </div>
     `);
 
     const main = document.querySelector("main");

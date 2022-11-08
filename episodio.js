@@ -24,9 +24,46 @@ getEpisodes(data => {
     console.log(data);
     a = data.characters;
     a= a.map(e=> e.split ("/").reverse()[0]);
-    a= a.map(e=> e.split ("/").reverse()[0].join(","))
+    a= a.map(e=> e.split ("/").reverse()[0]).join(",")
+    document.getElementById("episodio").innerHTML= "Personajes del capitulo " + data.name + " " + data.episode
+    function getCharacters (done){
+        const results = fetch( "https://rickandmortyapi.com/api/character/"+a);
+        results
+            .then(response => response.json())
+            .then(data => {
+            done(data)
+        });
+      }
     
-    data.characters.forEach(episodios => {
+      getCharacters(data => {
+        console.log(data);
+
+    
+        data.forEach(episodios => {
+            const article = document.createRange().createContextualFragment(`
+              <div class="col-3">
+                    <div class="card">
+                    <img src="${episodios.image}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">${episodios.name}</h5>
+                        <p class="card-text">Genero:${episodios.gender} </p>
+                        <p class="card-text">Estado:${episodios.status} </p>
+                        <p class="card-text">Especie:${episodios.species} </p>
+                        <p class="card-text">Origen:${episodios.origin.name} </p>
+                        <p class="card-text">Locacion:${episodios.location.name} </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+        `);
+    
+        const main = document.querySelector("main");
+        main.append(article);
+        
+        });
+      
+      })
+    
+    /*data.characters.forEach(episodios => {
 
         
         const article = document.createRange().createContextualFragment(`
@@ -34,22 +71,9 @@ getEpisodes(data => {
        <div>${episodios} </div>
     </article>
     `);
-    console.log(episodio)
-
-
-    function getEpisodes (ep){
-        const episodios = fetch("https://rickandmortyapi.com/api/character/1,183" + a);
-        episodios
-            .then(response => response.json())
-            .then(data => {
-            ep(data)
-        });
-        
-    
-    }
-    const main = document.querySelector("main");
-    main.append(article);
+    console.log(episodio)*/
     
     });
   
-  })
+
+  

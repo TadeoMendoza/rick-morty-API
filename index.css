@@ -20,8 +20,8 @@ body{
 }
 main{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 18px;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
 }
 .image-container{
     display: flex;
@@ -31,5 +31,5 @@ main{
     height: 100%;
 }
 article{
-    padding: 10px;
+    padding: 5px;
 }

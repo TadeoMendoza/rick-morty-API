@@ -1,34 +1,62 @@
 function getCharacters (done){
-    const results = fetch( "https://rickandmortyapi.com/api/character" );
-    results
+  const results = fetch( "https://rickandmortyapi.com/api/character" );
+  results
+      .then(response => response.json())
+      .then(data => {
+      done(data)
+  });
+  
+}
+
+
+
+
+
+function getEpisodes (ep){
+    const episodios = fetch( "https://rickandmortyapi.com/api/episode" );
+    episodios
         .then(response => response.json())
         .then(data => {
-        done(data)
+        ep(data)
     });
     
 
 }
 
-getCharacters(data => {
+
+
+getEpisodes(data => {
     console.log(data);
 
-    data.results.forEach(personaje => {
+    data.results.forEach(episodios => {
         const article = document.createRange().createContextualFragment(`
-        <article>
-        <div class="card" style="">
-            <img src="${personaje.image}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">${personaje.name}</h5>
-              <p class="card-text">Estado: ${personaje.status}</p>
-              <p class="card-text">info del personaje</p>
-              <p class="card-text">info del personaje</p>
-              <p class="card-text">info del personaje</p>
-              <a href="#" class="btn btn-primary">boton no se para que</a>
+    <article>
+        <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" aria-expanded="false" data-bs-target="#${episodios.episode}" >
+              ${episodios.episode}  ${episodios.name}
+            </button>
+          </h2>
+          <div id="${episodios.episode}" class="accordion-collapse collapse"  data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+             <p class=""> Episodio lanzado el ${episodios.air_date}</p>
+             <p class=""> Los personajes que aparecen son:</p>
+             <a href="/episodio.html?epi=${episodios.id}">episodios</a>
             </div>
           </div>
+        </div>
+      </div>
     </article>
     `);
+
     const main = document.querySelector("main");
     main.append(article);
+    
     });
-})
+  
+  })
+  
+ 
+              
+  

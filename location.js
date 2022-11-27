@@ -62,10 +62,15 @@ console.log(listaPartida)
             </div>
         `);
 
-        
+        if(valor > a.length){
+            valor=0;
+        }
+        if(valor <0){
+            valor=0;
+        }
         const main = document.querySelector("main");
         main.append(article);
-        
+
         });
       
 function getCharacters (done){
@@ -77,6 +82,7 @@ function getCharacters (done){
     });
   }
     getCharacters(data2 => {
+        console.log(data2)
         console.log("lsita corta", data2)
             data2.forEach(personajes => {
                 const article2 = document.createRange().createContextualFragment(`

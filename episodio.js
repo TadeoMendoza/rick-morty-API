@@ -50,7 +50,7 @@ getEpisodes(data => {
                         <p class="card-text">Estado:${episodios.status} </p>
                         <p class="card-text">Especie:${episodios.species} </p>
                         <p class="card-text">Origen:${episodios.origin.name} </p>
-                        <p class="card-text">Locacion:${episodios.location.name}<a href="locacion.html?locacion=${episodios.location.name}&valor=0" class="btn btn-primary">Ver locacion</a> </p>
+                        <p class="card-text">Locacion:${episodios.location.name}<a href="./locacion.html?locacion=${episodios.location.name}&valor=0" class="btn btn-primary">Ver locacion</a> </p>
                     </div>
                 </div>
         `);

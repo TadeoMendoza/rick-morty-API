@@ -50,7 +50,7 @@ const createItem = item => {
             <div class="accordion-body">
              <p class=""> Episodio lanzado el ${item.air_date}</p>
              <p class=""> Los personajes que aparecen son:</p>
-             <a class="btn btn-primary" href="/episodio.html?epi=${item.id}">Ver Personajes</a>
+             <a class="btn btn-primary" href="/rick-morty-API//episodio.html?epi=${item.id}">Ver Personajes</a>
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@ observer.observe(requestTarget);
 //             <div class="accordion-body">
 //              <p class=""> Episodio lanzado el ${episodios.air_date}</p>
 //              <p class=""> Los personajes que aparecen son:</p>
-//              <a class="btn btn-primary" href="/rick-morty-API//episodio.html?epi=${episodios.id}">Ver Personajes</a>
+//              <a class="btn btn-primary" href="/episodio.html?epi=${episodios.id}">Ver Personajes</a>
 //             </div>
 //           </div>
 //         </div>

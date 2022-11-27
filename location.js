@@ -53,7 +53,7 @@ console.log(listaPartida)
                         <p class="card-text">Tipo:${locaciones.type} </p>
                         <p class="card-text">Dimension:${locaciones.dimension} </p>
                         <p class="card-text">Residentes:</p>
-                        <a href="locacion.html?locacion=${locaciones.name}&valor=${++valor}" class="btn btn-primary">Siguiente personajes</a>
+                        <a href="./locacion.html?locacion=${locaciones.name}&valor=${++valor}" class="btn btn-primary">Siguiente personajes</a>
                     </div>
                     
              </div>
